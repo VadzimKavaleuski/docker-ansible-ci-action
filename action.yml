@@ -12,5 +12,6 @@ description: 'Start molekule test in docker'
 runs:
   using: 'docker'
   image: 'docker://leandelivery/docker-ansible-ci:ansible-2.8'
+  entrypoint : 'molecule test -s default'
 #   args:
 #     - ${{ inputs.who-to-greet }}

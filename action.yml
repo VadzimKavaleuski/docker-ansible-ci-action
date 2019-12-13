@@ -11,6 +11,6 @@ description: 'Start molekule test in docker'
 #     description: 'The time we greeted you'
 runs:
   using: 'docker'
-  image: 'docker://leandelivery/docker-ansible-ci'
+  image: 'docker://leandelivery/docker-ansible-ci:ansible-2.8'
 #   args:
 #     - ${{ inputs.who-to-greet }}

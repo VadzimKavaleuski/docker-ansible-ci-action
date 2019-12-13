@@ -13,6 +13,6 @@ runs:
   using: 'docker'
   image: 'docker://leandelivery/docker-ansible-ci:ansible-2.8'
   entrypoint : 'molecule'
-  args: ['test -s default']
+  args: ['molecule test -s default']
 #   args:
 #     - ${{ inputs.who-to-greet }}

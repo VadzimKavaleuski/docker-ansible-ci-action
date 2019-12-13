@@ -1,0 +1,16 @@
+# action.yml
+name: 'molecule test'
+description: 'Start molekule test in docker'
+# inputs:
+#   who-to-greet:  # id of input
+#     description: 'Who to greet'
+#     required: true
+#     default: 'World'
+# outputs:
+#   time: # id of output
+#     description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'docker://leandelivery/docker-ansible-ci'
+#   args:
+#     - ${{ inputs.who-to-greet }}

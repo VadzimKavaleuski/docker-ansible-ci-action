@@ -21,4 +21,3 @@ runs:
     cp /github/workspace/.ansible-lint /github/${GITHUB_REPOSITORY}&&
     cd /github/${GITHUB_REPOSITORY}&&
     molecule test -s default"
-    

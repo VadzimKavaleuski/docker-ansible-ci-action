@@ -1,11 +1,11 @@
 # action.yml
 name: 'molecule test'
 description: 'Start molekule test in docker'
-# inputs:
-#   who-to-greet:  # id of input
-#     description: 'Who to greet'
-#     required: true
-#     default: 'World'
+inputs:
+  repository:  # id of input
+    description: 'Repository name with owner. For example, actions/checkout'
+    # required: true
+    default: ${{ github.repository }}
 # outputs:
 #   time: # id of output
 #     description: 'The time we greeted you'
@@ -15,10 +15,10 @@ runs:
   entrypoint : '/bin/sh'
   # args: ['-c "mkdir -p /github/${GITHUB_REPOSITORY}&&cp -R /github/workspace/* /github/${GITHUB_REPOSITORY}&&cp /github/workspace/.yamllint /github/${GITHUB_REPOSITORY}&&cp /github/workspace/.ansible-lint /github/${GITHUB_REPOSITORY}&&cd /github/${GITHUB_REPOSITORY}&&molecule test -s default"']
   args: 
-    - echo "${GITHUB_REPOSITORY}"
-    - mkdir -p /github/${GITHUB_REPOSITORY}
-    - cp -R /github/workspace/* /github/${GITHUB_REPOSITORY}
-    - cp /github/workspace/.yamllint /github/${GITHUB_REPOSITORY}
-    - cp /github/workspace/.ansible-lint /github/${GITHUB_REPOSITORY}
-    - cd /github/${GITHUB_REPOSITORY}
+    - echo "${{repository}}"
+    - mkdir -p /github/${repository}
+    - cp -R /github/workspace/* /github/${repository}
+    - cp /github/workspace/.yamllint /github/${repository}
+    - cp /github/workspace/.ansible-lint /github/${repository}
+    - cd /github/${repository}
     - molecule test -s default"']

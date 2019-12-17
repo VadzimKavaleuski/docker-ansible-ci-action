@@ -6,4 +6,5 @@ echo start
 # cp /github/workspace/.yamllint "/github/$1"
 # cp /github/workspace/.ansible-lint "/github/$1"
 # cd "/github/$1"
+pwd
 molecule test -s default

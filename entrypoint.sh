@@ -5,5 +5,5 @@
 # cp -R /github/workspace/* "/github/$1"
 # cp /github/workspace/.yamllint "/github/$1"
 # cp /github/workspace/.ansible-lint "/github/$1"
-cd "/github/$1"
+# cd "/github/$1"
 molecule test -s default

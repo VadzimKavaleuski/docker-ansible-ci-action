@@ -12,11 +12,11 @@ inputs:
 runs:
   using: 'docker'
   image: 'docker://leandelivery/docker-ansible-ci:ansible-2.8'
-  entrypoint: molecule
+  # entrypoint: molecule
   # entrypoint : echo ${GITHUB_REPOSITORY}
   # entrypoint : "/entrypoint.sh"
   # args: ["-c mkdir -p /github/${GITHUB_REPOSITORY}&&cp -R /github/workspace/* /github/${GITHUB_REPOSITORY}&&cp /github/workspace/.yamllint /github/${GITHUB_REPOSITORY}&&cp /github/workspace/.ansible-lint /github/${GITHUB_REPOSITORY}&&cd /github/${GITHUB_REPOSITORY}&&molecule test -s default"]
-  args: ["test -s default"]
+  args: ["molecule test -s default"]
   # args: 
   #   - /bin/sh -c "echo ${{inputs.repository}}"
   #   - /bin/sh -c "mkdir -p /github/${{inputs.repository}}"

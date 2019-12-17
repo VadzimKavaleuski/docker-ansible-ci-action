@@ -1,9 +1,4 @@
 #!/bin/sh -l
-
-echo "Hello $1"
-time=$(date)
-echo ::set-output name=time::$time
-
 echo $1
 mkdir -p /github/$1
 cp -R /github/workspace/* /github/$1

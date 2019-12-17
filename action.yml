@@ -15,6 +15,7 @@ runs:
   entrypoint : '/bin/sh'
   # args: ['-c "mkdir -p /github/${GITHUB_REPOSITORY}&&cp -R /github/workspace/* /github/${GITHUB_REPOSITORY}&&cp /github/workspace/.yamllint /github/${GITHUB_REPOSITORY}&&cp /github/workspace/.ansible-lint /github/${GITHUB_REPOSITORY}&&cd /github/${GITHUB_REPOSITORY}&&molecule test -s default"']
   args: 
+    - echo ${GITHUB_REPOSITORY}
     - mkdir -p /github/${GITHUB_REPOSITORY}
     - cp -R /github/workspace/* /github/${GITHUB_REPOSITORY}
     - cp /github/workspace/.yamllint /github/${GITHUB_REPOSITORY}

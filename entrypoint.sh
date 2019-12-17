@@ -1,5 +1,5 @@
 #!/bin/sh -l
-# echo start
+echo start
 # echo "$1"
 # mkdir -p "/github/$1"
 # cp -R /github/workspace/* "/github/$1"

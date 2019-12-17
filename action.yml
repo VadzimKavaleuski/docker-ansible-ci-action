@@ -1,11 +1,11 @@
 # action.yml
 name: 'molecule test'
 description: 'Start molekule test in docker'
-# inputs:
-#   repository:  # id of input
-#     description: 'Repository name with owner. For example, actions/checkout'
-#     # required: true
-#     default: ${{ github.repository }}
+inputs:
+  repository:  # id of input
+    description: 'Repository name with owner. For example, actions/checkout'
+    # required: true
+    default: ${{ github.repository }}
 # outputs:
 #   time: # id of output
 #     description: 'The time we greeted you'
@@ -13,13 +13,13 @@ runs:
   using: 'docker'
   image: 'docker://leandelivery/docker-ansible-ci:ansible-2.8'
   # entrypoint : echo ${GITHUB_REPOSITORY}
-  entrypoint : /bin/sh -c
-  args: ["mkdir -p /github/${GITHUB_REPOSITORY}&&cp -R /github/workspace/* /github/${GITHUB_REPOSITORY}&&cp /github/workspace/.yamllint /github/${GITHUB_REPOSITORY}&&cp /github/workspace/.ansible-lint /github/${GITHUB_REPOSITORY}&&cd /github/${GITHUB_REPOSITORY}&&molecule test -s default"]
-  # args: 
-  #   - echo ${{inputs.repository}}
-  #   - mkdir -p /github/${{inputs.repository}}
-  #   - cp -R /github/workspace/* /github/${{inputs.repository}}
-  #   - cp /github/workspace/.yamllint /github/${{inputs.repository}}
-  #   - cp /github/workspace/.ansible-lint /github/${{inputs.repository}}
-  #   - cd /github/${{inputs.repository}}
-  #   - molecule test -s default
+  # entrypoint : /bin/sh
+  # args: ["-c mkdir -p /github/${GITHUB_REPOSITORY}&&cp -R /github/workspace/* /github/${GITHUB_REPOSITORY}&&cp /github/workspace/.yamllint /github/${GITHUB_REPOSITORY}&&cp /github/workspace/.ansible-lint /github/${GITHUB_REPOSITORY}&&cd /github/${GITHUB_REPOSITORY}&&molecule test -s default"]
+  args: 
+    -  ${{inputs.repository}}
+    # - mkdir -p /github/${{inputs.repository}}
+    # - cp -R /github/workspace/* /github/${{inputs.repository}}
+    # - cp /github/workspace/.yamllint /github/${{inputs.repository}}
+    # - cp /github/workspace/.ansible-lint /github/${{inputs.repository}}
+    # - cd /github/${{inputs.repository}}
+    # - molecule test -s default
